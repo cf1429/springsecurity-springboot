@@ -1,0 +1,11 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /springboot-springsecurity
+spring:
+  application:
+    name: springboot-springsecurity
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp

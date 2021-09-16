@@ -1,0 +1,7 @@
+此项目是基于springsecurity+springboot的认证授权实现：
+1、创建一个maven项目，在pom中添加springboot及springsecurity的相关依赖
+2、在resources下创建一个application.yml配置文件，用来添加springboot的相关配置，此配置文件中可能会配置数据源，
+tomcat端口，服务名称等等一切能配置的东西都可以在此配置文件中进行配置
+3、在项目包最外层创建springboot项目主启动类，用来启动springboot项目
+4、添加webconfig配置文件
+5、添加springsecurity的安全配置WebSecurityConfig配置文件
