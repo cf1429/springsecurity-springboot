@@ -22,7 +22,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
         // 暂时采用模拟数据
         System.out.println("调用自定义的UserDetailsService");
-        UserDetails authorities = User.withUsername("zhangsan").password("1234").authorities("p1").build();
+        UserDetails authorities = User.withUsername("zhangsan").password("$2a$10$JiKeZ5WY6LMm1LnVTgQUPO11sBf.nWd/OWubgnmtXL03uOWWVDYSS").authorities("p1").build();
         return authorities;
     }
 }
