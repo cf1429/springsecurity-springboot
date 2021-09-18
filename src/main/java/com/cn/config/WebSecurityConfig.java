@@ -19,14 +19,14 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // 定义用户信息服务（查询用户信息）
-    @Bean
-    public UserDetailsService userDetailsService(){
-        // 基于内存的方式查询用户信息,创建模拟用户张三，李四，并且给张三李四设置分别设置p1，p2的访问权限
-        InMemoryUserDetailsManager memoryUserDetailsManager = new InMemoryUserDetailsManager();
-        memoryUserDetailsManager.createUser(User.withUsername("zhangsan").password("1234").authorities("p1").build());
-        memoryUserDetailsManager.createUser(User.withUsername("lisi").password("1234").authorities("p2").build());
-        return memoryUserDetailsManager;
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService(){
+//        // 基于内存的方式查询用户信息,创建模拟用户张三，李四，并且给张三李四设置分别设置p1，p2的访问权限
+//        InMemoryUserDetailsManager memoryUserDetailsManager = new InMemoryUserDetailsManager();
+//        memoryUserDetailsManager.createUser(User.withUsername("zhangsan").password("1234").authorities("p1").build());
+//        memoryUserDetailsManager.createUser(User.withUsername("lisi").password("1234").authorities("p2").build());
+//        return memoryUserDetailsManager;
+//    }
 
 
     // 密码编译器
