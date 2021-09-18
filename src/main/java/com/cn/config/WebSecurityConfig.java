@@ -39,13 +39,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // 安全拦截机制，根据目前项目模拟需要，添加需要放行的请求和需要认证通过的请求
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable()// 屏蔽掉csrf
+                .authorizeRequests()
                 .antMatchers("/test/test1").hasAnyAuthority("p1")  // 拥有p1权限，可以访问test1
                 .antMatchers("/test/test2").hasAnyAuthority("p2")  // 拥有p2权限，可以访问test2
                 .antMatchers("/test/**").authenticated()   // 这个请求必须认证通过
                 .anyRequest().permitAll()   // 除了上面的请求，其他的都可以放行、
                 .and()
                 .formLogin()// 允许表单登录
+                .loginPage("/login-view")  // 自定义登录页面
+                .loginProcessingUrl("/login")
                 .successForwardUrl("/login-success"); // 自定义登录成功之后的页面地址
     }
 }

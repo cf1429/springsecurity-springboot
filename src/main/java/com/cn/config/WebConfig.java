@@ -18,7 +18,8 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("redirect:/login"); // 将登录页面修改成springsecurity自身默认的页面
+        registry.addViewController("/").setViewName("redirect:/login-view"); // 将登录页面修改成springsecurity自身默认的页面
+        registry.addViewController("/login-view").setViewName("login");
     }
 
 }
