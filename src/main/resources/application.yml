@@ -9,3 +9,13 @@ spring:
     view:
       prefix: /WEB-INF/view/
       suffix: .jsp
+
+  datasource:
+    url: jdbc:mysql://8.133.170.159:3306/security-oauth?useUnicode=true&characherEncoding=utf-8&useSSL=false
+    username: root
+    password: awnjqq58
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.cn.model
