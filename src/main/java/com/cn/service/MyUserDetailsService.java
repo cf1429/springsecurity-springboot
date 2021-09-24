@@ -26,9 +26,13 @@ public class MyUserDetailsService implements UserDetailsService {
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(SysUser::getUsername,s);
         SysUser sysUser = sysUserMapper.selectOne(lambdaQueryWrapper);
+        if(null == sysUser){
+            return null;   // 当用户数据在数据库中不存在时，由springsecurity自己抛出异常
+        }
         // 暂时采用模拟数据
         System.out.println("调用自定义的UserDetailsService");
-        UserDetails authorities = User.withUsername("zhangsan").password("$2a$10$JiKeZ5WY6LMm1LnVTgQUPO11sBf.nWd/OWubgnmtXL03uOWWVDYSS").authorities("p1").build();
+        // 目前用户数据从数据库中获取，权限数据先通过静态写死来控制
+        UserDetails authorities = User.withUsername(sysUser.getUsername()).password(sysUser.getPassword()).authorities("p1").build();
         return authorities;
     }
 }
